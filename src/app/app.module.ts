@@ -11,6 +11,9 @@ import { EditorialModule } from './editorial/editorial.module';
 import { HttpErrorInterceptorService } from './interceptors/http-error-interceptor.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignUpModule } from './SignUp/SignUp.module';
+import { LoginModule } from './Login/Login.module';
+import { CompanyModule } from './Company/Company.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BookModule,
     EditorialModule,
     AuthorModule,
+    SignUpModule,
+    LoginModule,
+    CompanyModule,
     HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 10000,

@@ -1,0 +1,103 @@
+<p>
+  SignUp1 works!
+</p>
+<div class="container mt-4">
+  <h2 class="text-center">Create a new user</h2>
+  <form
+    [formGroup]="signupForm"
+    (ngSubmit)="!signupForm.invalid && createUser(signupForm.value)"
+  >
+    <!--nombre-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="nombre">Name</label>
+      <input
+        novalidate
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        placeholder="User's name"
+      />
+      <div
+        class="alert alert-danger alert-dismissible fade show"
+        *ngIf="
+          signupForm.get('nombre')!.hasError('required') &&
+          signupForm.get('nombre')!.touched
+        "
+      >
+        Name required
+      </div>
+    </div>
+
+    <!--Password-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="password">Password</label>
+      <input
+        novalidate
+        id="password"
+        class="form-control"
+        formControlName="password"
+        placeholder="User's Password"
+      />
+      <div
+        class="alert alert-danger alert-dismissible fade show"
+        *ngIf="
+          signupForm.get('password')!.hasError('required') &&
+          signupForm.get('password')!.touched
+        "
+      >
+        Password required
+      </div>
+    </div>
+
+    <!--Password2-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="password2">Password2</label>
+      <input
+        novalidate
+        id="password2"
+        class="form-control"
+        formControlName="password2"
+        placeholder="User's Password Repeat"
+      />
+      <div
+        class="alert alert-danger alert-dismissible fade show"
+        *ngIf="
+          signupForm.get('password2')!.hasError('required') &&
+          signupForm.get('password2')!.touched
+        "
+      >
+        Password required
+      </div>
+    </div>
+
+    <!--Tipo-->
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="tipo">Type</label>
+      <input
+        novalidate
+        id="tipo"
+        class="form-control"
+        formControlName="tipo"
+        placeholder="User's Type"
+      />
+      <div
+        class="alert alert-danger alert-dismissible fade show"
+        *ngIf="
+          signupForm.get('tipo')!.hasError('required') &&
+          signupForm.get('tipo')!.touched
+        "
+      >
+        Password required
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!signupForm.valid"
+    >
+      Create
+    </button>
+
+  </form>
+ </div>
