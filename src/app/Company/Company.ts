@@ -1,4 +1,5 @@
 export class Company {
+  id: number;
   nombre: string;
   tipo: string;
   correo: string;
@@ -11,9 +12,10 @@ export class Company {
   is_active: boolean;
   estado: string;
 
-  constructor(nombre: string, tipo: string, correo: string, celular: string,
+  constructor(id: number, nombre: string, tipo: string, correo: string, celular: string,
     contacto: string, pais: string, ciudad: string, direccion: string,
     id_usuario: number, is_active: boolean, estado: string){
+      this.id=id;
       this.nombre = nombre;
       this.tipo = tipo;
       this.correo = correo;

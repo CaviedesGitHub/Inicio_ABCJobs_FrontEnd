@@ -32,8 +32,8 @@ export class Login1Component implements OnInit {
         this.loginForm.reset();
 
         const decodedToken = this.helper.decodeToken(res.token);
-        this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])
-
+        //this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])  OK
+        this.router.navigate([`/detalleEmpresa/${decodedToken.sub}/${res.token}`])
         // si existe empoderado
         //if (res.empoderado)
         //    this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])
