@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CompanyComponent } from './Company.component';
+import { CompanyCrearComponent } from './Company-crear/Company-crear.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule, ReactiveFormsModule
   ],
-  declarations: [CompanyComponent]
+  declarations: [CompanyComponent, CompanyCrearComponent],
+  exports: [CompanyComponent, CompanyCrearComponent]
 })
 export class CompanyModule { }

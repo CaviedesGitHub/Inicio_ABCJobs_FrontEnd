@@ -27,10 +27,12 @@ export class Login1Component implements OnInit {
   loginUser(login: Login){
       this.error = false
       this.loginService.userLogIn(login).subscribe(res => {
-        const decodedToken = this.helper.decodeToken(res.token);
-        console.info("The User Logged: ", login.nombre)
-        this.toastr.success("Confirmation", `/empresa/${decodedToken.sub}/${res.token}`)
+        console.info("The Company Created: ", res.nombre)
+        this.toastr.success("Confirmation", 'Company Created')
         this.loginForm.reset();
+
+        const decodedToken = this.helper.decodeToken(res.token);
+        this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])
 
         // si existe empoderado
         //if (res.empoderado)
