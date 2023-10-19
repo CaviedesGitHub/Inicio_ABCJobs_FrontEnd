@@ -6,11 +6,15 @@ import { CompanyVerComponent } from './Company/Company-ver/Company-ver.component
 import { CompanyComponent } from './Company/Company.component';
 import { Login1Component } from './Login/Login1/Login1.component';
 import { SignUp1Component } from './SignUp/SignUp1/SignUp1.component';
+import { ProyectoVerComponent } from './Company/Proyecto-ver/Proyecto-ver.component';
+import { PerflAgregarComponent } from './Company/Perfl-agregar/Perfl-agregar.component';
 
 const routes: Routes = [
   { path: '', component: Login1Component },
   { path: 'empresa/:userId/:userToken', component: CompanyCrearComponent },
-  { path: 'detalleEmpresa/:userId/:userToken', component: CompanyVerComponent }
+  { path: 'detalleEmpresa/:userId/:userToken', component: CompanyVerComponent },
+  { path: 'detalleProyecto', component: ProyectoVerComponent },
+  { path: 'agregarPerfil/:ProyId/:userToken', component: PerflAgregarComponent }
 ];
 
 @NgModule({

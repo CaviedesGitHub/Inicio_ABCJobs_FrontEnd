@@ -5,6 +5,7 @@ import { LoginService } from '../Login.service';
 import { Login } from '../Login';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { Router } from '@angular/router';
+import { CompanyDetail } from 'src/app/Company/Company-detail';
 
 @Component({
   selector: 'app-Login1',
@@ -16,6 +17,7 @@ export class Login1Component implements OnInit {
   loginForm!: FormGroup;
   error: boolean = false;
   helper = new JwtHelperService();
+  company!: CompanyDetail;
 
 
   constructor(private formBuilder: FormBuilder,
@@ -27,24 +29,23 @@ export class Login1Component implements OnInit {
   loginUser(login: Login){
       this.error = false
       this.loginService.userLogIn(login).subscribe(res => {
-        console.info("The Company Created: ", res.nombre)
-        this.toastr.success("Confirmation", 'Company Created')
+        console.info("The Company Created: ", res.id)
+        this.toastr.success("Confirmation", 'Login'+res.id)
         this.loginForm.reset();
-
         const decodedToken = this.helper.decodeToken(res.token);
-        //this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])  OK
-        this.router.navigate([`/detalleEmpresa/${decodedToken.sub}/${res.token}`])
-        // si existe empoderado
-        //if (res.empoderado)
-        //    this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])
-        //else
-        //    this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])
-        // sino
-        //this.loginService.userLogIn(login)
-        // si tiene
-        // tal cosa
-        // sino
-        // se llama al otro
+        if (res.hasOwnProperty('empresa')){
+          console.log(res.empresa)
+          this.company=res.empresa
+          if (JSON.stringify(this.company) === '{}'){
+            this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])  
+          }        
+          else {
+            this.router.navigate([`/detalleEmpresa/${decodedToken.sub}/${res.token}`])
+          }
+        }
+        else {
+          this.router.navigate([`/empresa/${decodedToken.sub}/${res.token}`])  
+        }        
         },
           error => {
             this.error = true

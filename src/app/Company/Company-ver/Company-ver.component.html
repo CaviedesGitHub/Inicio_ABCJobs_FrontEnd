@@ -12,4 +12,13 @@
 <p >{{ company.id_usuario}}</p>
 <div *ngFor="let proy of company.proyectos" class="col mb-2">
   <p >{{ proy.nombre }}</p>
+  <a routerLink="detalleProyecto" > {{ proy.nombre }}</a>
 </div>
+
+
+<!-- 
+
+
+  <a routerLink="detalleProyecto/{{ proy.id }}/{{ this.token }}"> {{ proy.nombre }}</a>
+/home/lepcorp1/Desarrollo/repo/angular/ABC170830/Inicio_ABCJobs_FrontEnd/src
+-->

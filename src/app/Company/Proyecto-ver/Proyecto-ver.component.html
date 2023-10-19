@@ -1,0 +1,50 @@
+<p>
+  Proyecto-ver works!
+</p>
+<a routerLink="agregarPerfil/{{ proyId }}/{{ this.token }}"> Adicionar Perfil al proyecto </a>
+<p>
+  {{project.id}}
+</p>
+<p>
+  {{project.nombre}}
+</p>
+<p>
+  {{project.descripcion}}
+</p>
+<p>
+  {{project.id_emp}}
+</p>
+<p>
+  {{project.empresa}}
+</p>
+<div *ngFor="let perfil of project.perfiles" class="col mb-2">
+  <p >{{ perfil.id }}</p>
+  <p >{{ perfil.nombre }}</p>
+  <p >{{ perfil.id_proy }}</p>
+  <p >{{ perfil.id_perfil }}</p>
+  <p >{{ perfil.id_cand }}</p>
+  <p >{{ perfil.candidato }}</p>
+    <div *ngFor="let ht of perfil.lstHT" class="col mb-2">
+      <p >{{ ht.id }}</p>
+      <p >{{ ht.nombre }}</p>
+      <p >{{ ht.tipo }}</p>
+      <p >{{ ht.id_ph }}</p>
+      <p >{{ ht.valoracion }}</p>
+    </div>
+    <div *ngFor="let hb of perfil.lstHB" class="col mb-2">
+      <p >{{ hb.id }}</p>
+      <p >{{ hb.nombre }}</p>
+      <p >{{ hb.tipo }}</p>
+      <p >{{ hb.id_ph }}</p>
+      <p >{{ hb.valoracion }}</p>
+    </div>
+    <div *ngFor="let hp of perfil.lstHP" class="col mb-2">
+      <p >{{ hp.id }}</p>
+      <p >{{ hp.nombre }}</p>
+      <p >{{ hp.tipo }}</p>
+      <p >{{ hp.id_ph }}</p>
+      <p >{{ hp.valoracion }}</p>
+    </div>
+</div>
+
+
