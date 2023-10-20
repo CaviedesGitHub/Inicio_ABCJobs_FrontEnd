@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { PerfilProyecto } from './Perfil-proyecto';
 import { Habil } from './Habil';
+import { Project } from './Project';
 
 @Injectable({
   providedIn: 'root'
@@ -40,11 +41,17 @@ export class CompanyService {
     return this.http.get<CompanyDetail>(this.apiEmpresaDetalle);
   }
 
-  viewDetailProject(proyId: number): Observable<ProjectDetail> {
-    //http://localhost:5006/empresas/proyectos/1/detallePerfiles
-    //this.detalleUrl='http://localhost:5000'+'/empresas/proyectos/'+`/${proyId}`+'/detallePerfiles'
-    this.detalleUrl='http://localhost:5000/empresas/proyectos/1/detallePerfiles'
-    return this.http.get<ProjectDetail>(this.detalleUrl);
+  viewDetailProject(p: Project): Observable<any> {
+    //http://localhost:5000/empresas/proyectos/1/detallePerfiles
+    this.detalleUrl='http://localhost:5000'+'/empresas/proyectos/'+`/${p.id}`+'/detallePerfiles'
+    //fija: 'http://localhost:5000/empresas/proyectos/1/detallePerfiles'
+    //this.detalleUrl='http://localhost:5000/empresas/proyectos/1/detallePerfiles'
+    return this.http.get<any>(this.detalleUrl);
+  }
+
+  verDetalle(): Observable<any> {
+    //return this.http.get<any>('http://localhost:5000/empresas/proyectos/1/detallePerfiles')
+    return this.http.get<any>('http://localhost:5000/empresa/1')
   }
 
 }

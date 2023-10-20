@@ -28,6 +28,8 @@ export class CompanyCrearComponent implements OnInit {
       console.info("The company was created: ", company)
       this.toastr.success("Confirmation", "Company created")
       this.empresaForm.reset();
+      //company.id_usuario
+      //this.router.navigate([`/detalleEmpresa/${decodedToken.sub}/${res.token}`])
     })
   }
 

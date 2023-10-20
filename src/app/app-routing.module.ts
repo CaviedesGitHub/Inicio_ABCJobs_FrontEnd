@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: '', component: Login1Component },
   { path: 'empresa/:userId/:userToken', component: CompanyCrearComponent },
   { path: 'detalleEmpresa/:userId/:userToken', component: CompanyVerComponent },
-  { path: 'detalleProyecto', component: ProyectoVerComponent },
-  { path: 'agregarPerfil/:ProyId/:userToken', component: PerflAgregarComponent }
+  { path: 'detalleProyecto/:proyId/:userId/:userToken', component: ProyectoVerComponent },
+  { path: 'agregarPerfil/:proyId/:userToken', component: PerflAgregarComponent }
 ];
 
 @NgModule({

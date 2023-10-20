@@ -1,22 +1,52 @@
-<p>
-  Proyecto-ver works!
-</p>
-<a routerLink="agregarPerfil/{{ proyId }}/{{ this.token }}"> Adicionar Perfil al proyecto </a>
-<p>
-  {{project.id}}
-</p>
-<p>
-  {{project.nombre}}
-</p>
-<p>
-  {{project.descripcion}}
-</p>
-<p>
-  {{project.id_emp}}
-</p>
-<p>
-  {{project.empresa}}
-</p>
+<a routerLink="/agregarPerfil/{{ this.proyId }}/{{ this.token }}"> Adicionar Perfil al proyecto </a> 
+<a routerLink="/detalleEmpresa/{{ this.userId }}/{{ this.token }}"> Volver a Empresa </a> 
+<p>this.proyId: {{this.proyId}}</p>
+<p>this.token: {{this.token}}</p>
+<H1>Empresa {{project.empresa}}</H1>
+<H2>Proyecto {{project.nombre}}</H2>
+<H3>Id Proyecto: {{project.id}} </H3>
+<H3>Descripcion: {{project.descripcion}}  </H3>
+<p></p><p></p><p></p>
+<div class="container-fluid">
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Profile's Id</th>
+          <th class="h4">Profile's Name</th>
+          <th class="h4">Persona Contratada</th>
+          <th class="h4">Habil Tecnicas</th>
+          <th class="h4">Habil Blandas</th>
+          <th class="h4">Personalidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let perfil of project.perfiles">
+          <td>
+            <dd>{{perfil.id}}</dd>
+          </td>
+          <td>
+            <dd>{{perfil.nombre}}</dd>
+          </td>
+          <td>
+            <dd>{{perfil.candidato}}</dd>
+          </td>
+          <td >
+            <p *ngFor="let ht of perfil.lstHT">{{ ht.nombre }}</p>
+          </td>
+          <td >
+            <p *ngFor="let hb of perfil.lstHB">{{ hb.nombre }}</p>
+          </td>
+          <td >
+            <p *ngFor="let hp of perfil.lstHP">{{ hp.nombre }}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<!--
 <div *ngFor="let perfil of project.perfiles" class="col mb-2">
   <p >{{ perfil.id }}</p>
   <p >{{ perfil.nombre }}</p>
@@ -46,5 +76,5 @@
       <p >{{ hp.valoracion }}</p>
     </div>
 </div>
-
+-->
 
