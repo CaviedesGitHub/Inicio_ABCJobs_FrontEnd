@@ -24,7 +24,8 @@ export class ProyectoVerComponent implements OnInit {
   // ,private router: ActivatedRoute
   constructor(private toastr: ToastrService,
     private companyService: CompanyService,
-    private router: ActivatedRoute) { }
+    private router: ActivatedRoute,
+    private enrutador: Router) { }
 
 
     verDetalleComp(){
@@ -57,7 +58,7 @@ export class ProyectoVerComponent implements OnInit {
       })
     }
 
-  ngOnInit() {
+   ngOnInit() {
     if (!parseInt(this.router.snapshot.params.proyId) || this.router.snapshot.params.userToken === " ") {
       this.showError("No hemos podido identificarlo, por favor vuelva a iniciar sesión.")
     }
@@ -86,7 +87,9 @@ export class ProyectoVerComponent implements OnInit {
     this.toastr.warning(warning, "Error de autenticación")
   }
 
-
+  cancelCreation(){
+    this.enrutador.navigate([`/detalleEmpresa/${this.userId}/${this.token}`])
+  }
 
 
 }

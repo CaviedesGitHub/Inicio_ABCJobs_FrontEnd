@@ -8,13 +8,15 @@ import { Login1Component } from './Login/Login1/Login1.component';
 import { SignUp1Component } from './SignUp/SignUp1/SignUp1.component';
 import { ProyectoVerComponent } from './Company/Proyecto-ver/Proyecto-ver.component';
 import { PerflAgregarComponent } from './Company/Perfl-agregar/Perfl-agregar.component';
+import { PerfilEmpComponent } from './Company/Perfil-emp/Perfil-emp.component';
 
 const routes: Routes = [
   { path: '', component: Login1Component },
   { path: 'empresa/:userId/:userToken', component: CompanyCrearComponent },
   { path: 'detalleEmpresa/:userId/:userToken', component: CompanyVerComponent },
   { path: 'detalleProyecto/:proyId/:userId/:userToken', component: ProyectoVerComponent },
-  { path: 'agregarPerfil/:proyId/:userToken', component: PerflAgregarComponent }
+  { path: 'agregarPerfil/:proyId/:userToken', component: PerflAgregarComponent },
+  { path: 'cumplenPerfil/:proyId/:perfilId/:userId/:userToken', component: PerfilEmpComponent }
 ];
 
 @NgModule({

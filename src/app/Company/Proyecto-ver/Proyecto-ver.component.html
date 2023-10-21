@@ -1,23 +1,21 @@
-<a routerLink="/agregarPerfil/{{ this.proyId }}/{{ this.token }}"> Adicionar Perfil al proyecto </a> 
-<a routerLink="/detalleEmpresa/{{ this.userId }}/{{ this.token }}"> Volver a Empresa </a> 
-<p>this.proyId: {{this.proyId}}</p>
-<p>this.token: {{this.token}}</p>
 <H1>Empresa {{project.empresa}}</H1>
 <H2>Proyecto {{project.nombre}}</H2>
 <H3>Id Proyecto: {{project.id}} </H3>
 <H3>Descripcion: {{project.descripcion}}  </H3>
-<p></p><p></p><p></p>
+<HR>
+<a routerLink="/agregarPerfil/{{ this.proyId }}/{{ this.token }}"> Adicionar Perfil al proyecto </a> 
 <div class="container-fluid">
   <div class="col-6">
     <table class="table">
       <thead>
         <tr>
-          <th class="h4">Profile's Id</th>
-          <th class="h4">Profile's Name</th>
-          <th class="h4">Persona Contratada</th>
-          <th class="h4">Habil Tecnicas</th>
-          <th class="h4">Habil Blandas</th>
-          <th class="h4">Personalidad</th>
+          <th class="h5">Profile's Id</th>
+          <th class="h5">Profile's Name</th>
+          <th class="h5">Persona Contratada</th>
+          <th class="h5">Habil Tecnicas</th>
+          <th class="h5">Habil Blandas</th>
+          <th class="h5">Personalidad</th>
+          <th class="h5">Cumplen el Perfil</th>
         </tr>
       </thead>
       <tbody>
@@ -40,14 +38,28 @@
           <td >
             <p *ngFor="let hp of perfil.lstHP">{{ hp.nombre }}</p>
           </td>
+          <td >
+            <p><a routerLink="/cumplenPerfil/{{this.proyId}}/{{perfil.id}}/{{ this.userId }}/{{ this.token }}"> Ver </a> </p>
+          </td>
         </tr>
       </tbody>
     </table>
+    <button
+    type="button"
+    class="btn btn-danger ml-3"
+    (click)="cancelCreation()" >
+    Cancel
+  </button>
   </div>
+  <a routerLink="/detalleEmpresa/{{ this.userId }}/{{ this.token }}"> Volver a Empresa </a> 
 
 
 <!--
-<div *ngFor="let perfil of project.perfiles" class="col mb-2">
+  
+  <p>this.proyId: {{this.proyId}}</p>
+<p>this.token: {{this.token}}</p>
+  
+  <div *ngFor="let perfil of project.perfiles" class="col mb-2">
   <p >{{ perfil.id }}</p>
   <p >{{ perfil.nombre }}</p>
   <p >{{ perfil.id_proy }}</p>

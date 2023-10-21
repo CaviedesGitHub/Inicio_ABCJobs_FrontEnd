@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { PerfilProyecto } from './Perfil-proyecto';
 import { Habil } from './Habil';
 import { Project } from './Project';
+import { Candidato } from './Candidato';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,11 @@ export class CompanyService {
   verDetalle(): Observable<any> {
     //return this.http.get<any>('http://localhost:5000/empresas/proyectos/1/detallePerfiles')
     return this.http.get<any>('http://localhost:5000/empresa/1')
+  }
+
+  verCandidatosCumplenServ(id_perfil: number): Observable<any> {
+    //return this.http.get<Candidato[]>(environment.baseUrl +'/cumplenPerfil'+`/${id_perfil}`)
+    return this.http.get<any>('http://localhost:5000/cumplenPerfil'+`/${id_perfil}`)
   }
 
 }
