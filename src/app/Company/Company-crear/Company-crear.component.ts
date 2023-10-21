@@ -17,19 +17,19 @@ export class CompanyCrearComponent implements OnInit {
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private companyService: CompanyService,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private enrutador: Router
   ) { }
 
   userId: number | undefined
   token: string | undefined
 
   createCompany(company: Company){
-    this.companyService.createCompany(company).subscribe(company=>{
-      console.info("The company was created: ", company)
-      this.toastr.success("Confirmation", "Company created")
-      this.empresaForm.reset();
-      //company.id_usuario
-      //this.router.navigate([`/detalleEmpresa/${decodedToken.sub}/${res.token}`])
+    this.companyService.createCompany(company).subscribe(empresa=>{
+      console.info("The company was created: ", empresa)
+      this.toastr.success("Confirmation", "Company created"+`${empresa.Empresa.id_usuario}`)
+      this.empresaForm.reset();  //id_usuario
+      this.enrutador.navigate([`/detalleEmpresa/${this.userId}/${this.token}`])
     })
   }
 

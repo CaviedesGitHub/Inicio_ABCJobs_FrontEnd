@@ -8,6 +8,7 @@ import { ProyectoVerComponent } from './Proyecto-ver/Proyecto-ver.component';
 import { RouterModule } from '@angular/router';
 import { PerflAgregarComponent } from './Perfl-agregar/Perfl-agregar.component';
 import { PerfilEmpComponent } from './Perfil-emp/Perfil-emp.component';
+import { ProjectoCrearComponent } from './Projecto-crear/Projecto-crear.component';
 
 @NgModule({
   imports: [
@@ -15,11 +16,13 @@ import { PerfilEmpComponent } from './Perfil-emp/Perfil-emp.component';
   ],
   declarations: [CompanyComponent, CompanyCrearComponent, 
     CompanyVerComponent, ProyectoVerComponent, 
-    PerflAgregarComponent, PerfilEmpComponent
+    PerflAgregarComponent, PerfilEmpComponent,
+    ProjectoCrearComponent
   ],
   exports: [CompanyComponent, CompanyCrearComponent, 
     CompanyVerComponent, ProyectoVerComponent,
-    PerflAgregarComponent, PerfilEmpComponent
+    PerflAgregarComponent, PerfilEmpComponent,
+    ProjectoCrearComponent
   ]
 })
 export class CompanyModule { }

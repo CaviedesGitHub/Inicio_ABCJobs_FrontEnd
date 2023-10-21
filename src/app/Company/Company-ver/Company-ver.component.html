@@ -6,7 +6,8 @@
 <H5>Celular: {{ company.celular }}</H5>
 <H5>Contacto: {{ company.contacto }}</H5>
 <HR>
-
+<a routerLink="/agregarProyecto/{{ company.id }}/{{ this.userId }}/{{ this.token }}"> Adicionar Proyecto a la Empresa </a> 
+<HR>
 <div class="container-fluid">
   <div class="col-6">
     <table class="table">

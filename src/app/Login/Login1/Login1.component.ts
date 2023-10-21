@@ -29,7 +29,7 @@ export class Login1Component implements OnInit {
   loginUser(login: Login){
       this.error = false
       this.loginService.userLogIn(login).subscribe(res => {
-        console.info("The Company Created: ", res.id)
+        console.info("The Login Created: ", res.id)
         this.toastr.success("Confirmation", 'Login'+res.id)
         this.loginForm.reset();
         const decodedToken = this.helper.decodeToken(res.token);

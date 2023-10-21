@@ -19,10 +19,10 @@ export class PerflAgregarComponent implements OnInit {
   lstHP: Array<Habil> = [];
   selectedValue:any;
   selectedValue2:any;
-  selectedHT:any;
-  selectedHB:any;
-  selectedHP:any;
-  selectedH:any;
+  selectedHT:string="";
+  selectedHB:string="";
+  selectedHP:string="";
+  selectedH:string="";
   proyId: number =1;
   token: string = "";
 
@@ -58,10 +58,18 @@ export class PerflAgregarComponent implements OnInit {
     })
   }
 
+  //createPerfil1(perfil: PerfilProyecto){
+  //  this.selectedH=this.selectedHT+','+this.selectedHB+','+this.selectedHP
+  //  this.perfilForm.controls['lstHabils'].setValue(String(this.selectedH));
+  //  return this.createPerfil2(perfil)  
+  //}
+
   createPerfil(perfil: PerfilProyecto){
     this.toastr.success("Confirmation", this.selectedValue)
     //this.selectedH=this.selectedHT+','+this.selectedHB+','+this.selectedHP
     //this.perfilForm.controls['lstHabils'].setValue(String(this.selectedH));
+    //this.selectedH=this.selectedHT+','+this.selectedHB+','+this.selectedHP
+    //perfil.lstHabils="5,7"
     this.companyService.createPerfil(perfil,this.proyId).subscribe(res=>{
       console.info("The Profile was created: ", res)
       this.toastr.success("Confirmation", "Profile Created")

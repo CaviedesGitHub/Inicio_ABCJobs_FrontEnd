@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Login } from './Login';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,12 @@ import { Login } from './Login';
 export class LoginService {
 
 constructor(private http: HttpClient) { }
-//apiUrl='http://auth.eba-brqkktps.us-east-2.elasticbeanstalk.com'+'/auth/login'
-apiUrl='http://localhost:5000'+'/auth/login'
+
+private apiUrl=environment.baseUrl+'/auth/login'
 
 userLogIn(login: Login): Observable<any> {
   return this.http.post<any>(this.apiUrl, login);
 }
 
 }
+

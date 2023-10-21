@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../User';
 import { SignUpService } from '../SignUp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-SignUp1',
@@ -14,13 +15,15 @@ export class SignUp1Component implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private toastr: ToastrService,
-              private signupService: SignUpService){}
+              private signupService: SignUpService,
+              private router: Router){}
 
   createUser(user: User){
     this.signupService.createUser(user).subscribe(user=>{
-      console.info("The author was created: ", user)
-      this.toastr.success("Confirmation", "Author created")
+      console.info("The user was created: ", user)
+      this.toastr.success("Confirmation", "User created")
       this.signupForm.reset();
+      this.router.navigate(['/login'])  
     })
   }
 

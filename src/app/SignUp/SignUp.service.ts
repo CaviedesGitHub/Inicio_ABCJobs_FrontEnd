@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from './User';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignUpService {
-  //apiUrl='http://auth.eba-brqkktps.us-east-2.elasticbeanstalk.com'+'/auth/signup'
-  apiUrl='http://localhost:5000'+'/auth/signup'
+  private apiUrl=environment.baseUrl+'/auth/signup'
 
   createUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, user);

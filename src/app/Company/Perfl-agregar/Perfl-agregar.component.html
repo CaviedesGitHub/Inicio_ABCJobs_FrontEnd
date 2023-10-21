@@ -83,23 +83,29 @@
 
   <p></p><p></p><p></p>
   <form name="formHabilidades">
-    <p><label for="lstHabTec">habilidades Tecnicas</label></p>
-    <select [(ngModel)]="selectedHT" multiple name="lstHabTec" id="lstHabTec">
-      <option value={{ht.id}} *ngFor="let ht of this.lstHT">{{ ht.nombre }}</option>
-    </select>
-    <p>You have selected {{selectedHT}}</p>
+    <div style="width: 25%; display:inline-block;">
+      <p><label for="lstHabTec">habilidades Tecnicas</label></p>
+      <select [(ngModel)]="selectedHT" multiple name="lstHabTec" id="lstHabTec">
+        <option value={{ht.id}} *ngFor="let ht of this.lstHT">{{ ht.nombre }}</option>
+      </select>
+      <p>You have selected {{selectedHT}}</p>
+    </div>
 
-    <p><label for="lstHabBlan">habilidades Blandas</label></p>
-    <select [(ngModel)]="selectedHB" multiple name="lstHabBlan" id="lstHabBlan">
-      <option value={{ht.id}} *ngFor="let ht of this.lstHB">{{ ht.nombre }}</option>
-    </select>
-    <p>You have selected {{selectedHB}}</p>
-
-    <p><label for="lstHabPers">habilidades Personales</label></p>
-    <select [(ngModel)]="selectedHP"  multiple name="lstHabPers" id="lstHabPers">
-      <option value={{ht.id}} *ngFor="let ht of this.lstHP">{{ ht.nombre }}</option>
-    </select>
-    <p>You have selected {{selectedHP}}</p>
+    <div style="width: 75%; display:inline-block;">
+      <p><label for="lstHabBlan">habilidades Blandas</label></p>
+      <select [(ngModel)]="selectedHB" multiple name="lstHabBlan" id="lstHabBlan">
+        <option value={{ht.id}} *ngFor="let ht of this.lstHB">{{ ht.nombre }}</option>
+      </select>
+      <p>You have selected {{selectedHB}}</p>
+    </div>
+    
+    <div style="width: 30%; display:inline-block;">
+      <p><label for="lstHabPers">habilidades Personales</label></p>
+      <select [(ngModel)]="selectedHP"  multiple name="lstHabPers" id="lstHabPers">
+        <option value={{ht.id}} *ngFor="let ht of this.lstHP">{{ ht.nombre }}</option>
+      </select>
+      <p>You have selected {{selectedHP}}</p>
+    </div>
   </form>
 
  </div>
