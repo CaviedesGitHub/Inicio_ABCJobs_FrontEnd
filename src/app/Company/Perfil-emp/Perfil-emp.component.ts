@@ -27,7 +27,7 @@ export class PerfilEmpComponent implements OnInit {
 
   verCandidatosCumplen(perfilId: number){
     this.companyService.verCandidatosCumplenServ(perfilId).subscribe(lstCand=>{
-      this.toastr.success("Confirmation", `/${lstCand.Mensaje}`)
+      this.toastr.success("Confirmation", 'Consulta Done')
       this.lstCandidatos=lstCand
     },
     error => {
